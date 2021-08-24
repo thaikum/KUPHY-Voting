@@ -1,11 +1,12 @@
 .form-container {
   height: 100%;
-  background-image: url("/assets/logo.jpeg");
+  background-image: url("src/assets/logo.jpeg");
   background-position: center; /* Center the image */
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 1em;
 }
+
 form {
   width: 88%;
   margin: 0 auto;

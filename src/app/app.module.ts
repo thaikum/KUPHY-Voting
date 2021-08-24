@@ -14,6 +14,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AddAspirantsComponent } from './components/add-aspirants/add-aspirants.component';
+import { AddPositionComponent } from './components/add-position/add-position.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -31,6 +36,8 @@ const firebaseConfig = {
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    AddAspirantsComponent,
+    AddPositionComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +51,9 @@ const firebaseConfig = {
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

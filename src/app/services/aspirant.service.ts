@@ -55,4 +55,10 @@ export class AspirantService {
     );
     return this.aspCol.valueChanges({ idField: 'userId' });
   }
+
+  getAspirantByReg(reg: string): Observable<any> {
+    return this._firestore
+      .collection('users', (ref) => ref.where('regNo', '==', reg))
+      .valueChanges({ idField: 'docId' });
+  }
 }
