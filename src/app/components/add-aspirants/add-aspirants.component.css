@@ -1,0 +1,7 @@
+mat-radio-button {
+  display: block;
+  padding: 2px 0 2px 30px;
+}
+mat-label {
+  font-weight: bold;
+}

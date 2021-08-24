@@ -1,0 +1,9 @@
+<div>
+  <form #positionForm="ngForm" (ngSubmit)="addPositon(positionForm)">
+    <mat-form-field>
+      <mat-label> Position: </mat-label>
+      <input type="text" matInput ngModel name="position" />
+      <button mat-raised-button type="submit">Add the position</button>
+    </mat-form-field>
+  </form>
+</div>
