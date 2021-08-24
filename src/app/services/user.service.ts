@@ -33,6 +33,7 @@ export class UserService {
 
   async updateUserDetails(userName: string, regNo: string): Promise<any> {
     let userId: string | undefined;
+    regNo = regNo.toUpperCase();
     await this._auth.getLoggedInUser().then((id) => {
       userId = id;
     });
