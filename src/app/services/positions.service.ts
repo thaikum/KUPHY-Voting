@@ -3,9 +3,7 @@ import { UserDetails } from './user.service';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-  AngularFirestoreDocument,
 } from '@angular/fire/firestore';
-import { AngularFireStorage } from '@angular/fire/storage';
 
 interface Position {
   positionName: string;

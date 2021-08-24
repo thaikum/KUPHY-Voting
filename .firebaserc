@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kuphy-voting": {
+      "hosting": {
+        "KUPHY-Voting": [
+          "kuphy-voting"
+        ]
+      }
+    }
+  }
+}

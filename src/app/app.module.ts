@@ -15,7 +15,6 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { VoteComponent } from './components/vote/vote.component';
-import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -59,7 +58,6 @@ const firebaseConfig = {
     MatIconModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
