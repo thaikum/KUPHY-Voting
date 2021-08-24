@@ -19,6 +19,10 @@ export class AuthenticationService {
         await this._auth
           .signInWithEmailAndPassword(email, password)
           .then((user) => {
+            const uid = user.user?.uid;
+            if (typeof uid === 'string') {
+              localStorage.setItem('user', uid);
+            }
             return true;
           })
           .catch((err) => {
@@ -33,7 +37,11 @@ export class AuthenticationService {
       .then(async () => {
         await this._auth
           .createUserWithEmailAndPassword(email, password)
-          .then((usr) => {
+          .then((user) => {
+            const uid = user.user?.uid;
+            if (typeof uid === 'string') {
+              localStorage.setItem('user', uid);
+            }
             return true;
           })
           .catch((err) => {

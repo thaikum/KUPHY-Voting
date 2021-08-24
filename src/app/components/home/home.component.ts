@@ -11,14 +11,15 @@ export class HomeComponent implements OnInit {
   has_voted: any;
   constructor(private _auth: AuthenticationService, private _route: Router) {}
 
-  async checkAuthentication(): Promise<boolean> {
-    let userId = '';
-    await this._auth.getLoggedInUser().then((id) => {
-      userId = id;
-    });
+  checkAuthentication(): boolean {
+    const userId = localStorage.getItem('user');
     return !!userId;
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (!this.checkAuthentication()) {
+      this._route.navigate(['/login']);
+    }
+  }
 
   logout() {}
 
