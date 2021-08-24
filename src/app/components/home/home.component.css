@@ -1,0 +1,51 @@
+header {
+  display: flex;
+  justify-content: center;
+  /*border: solid 1px green;*/
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+header nav {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+nav a {
+  margin: 0 10%;
+  border-bottom: 1px solid blue;
+  /*color: blue;*/
+}
+nav a:hover {
+  cursor: pointer;
+}
+.logo-container {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 3em;
+}
+.logo-container img {
+}
+
+.message-container {
+  margin-top: 2.5em;
+  text-align: center;
+}
+.message-container p {
+  font-size: 17px;
+  margin-top: 1em;
+}
+.message-container p:nth-child(2) {
+  color: #8c0505;
+  font-size: 14px;
+}
+.vote-btn {
+  margin-top: 1em;
+}
+footer {
+  margin-top: 50%;
+  text-align: center;
+}

@@ -14,6 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { VoteComponent } from './components/vote/vote.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AddAspirantsComponent } from './components/add-aspirants/add-aspirants.component';
@@ -36,6 +39,7 @@ const firebaseConfig = {
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    VoteComponent,
     AddAspirantsComponent,
     AddPositionComponent,
   ],
@@ -51,6 +55,8 @@ const firebaseConfig = {
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatRadioModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatRadioModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
@@ -9,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  constructor(private router: Router) {}
   loading = false;
   error = '';
   constructor(private _auth: AuthenticationService, private _route: Router) {}
@@ -31,5 +34,8 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         this.error = err.message;
       });
+  }
+  navigateHome() {
+    this.router.navigate(['']);
   }
 }

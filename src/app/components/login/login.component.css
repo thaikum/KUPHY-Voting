@@ -7,6 +7,7 @@
   padding-top: 1em;
 }
 form {
+  position: relative;
   width: 88%;
   margin: 0 auto;
   text-align: center;
@@ -16,6 +17,7 @@ form {
   padding: 0.5em 1em 2em;
   border-radius: 10px;
   background-color: white;
+  margin-top: 3em;
 }
 
 mat-form-field {
@@ -26,4 +28,16 @@ button {
   width: 95%;
   margin-left: 2%;
   margin-top: 20px;
+}
+
+.close-form {
+  position: absolute;
+  background: none;
+  outline: none;
+  border: none;
+  left: -40%;
+  top: 1px;
+}
+.close-form:hover {
+  cursor: pointer;
 }
