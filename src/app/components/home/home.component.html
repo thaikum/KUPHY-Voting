@@ -1,1 +1,25 @@
-<p>home works!</p>
+<header>
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/admin">Admin</a>
+    <a routerLink="/login">Login</a>
+  </nav>
+
+  <div class="logo-container"><img src="/assets/logo.jpeg" width="100%" /></div>
+</header>
+
+<div class="message-container">
+  <p>Welcome to <b>KU Physics Club</b> voting app</p>
+  <p class="auth-message">Please wait as you are being authentication</p>
+  <p class="thanks-message" *ngIf="has_voted">Thankyou for voting</p>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="vote-btn"
+    (click)="navigateVote()"
+  >
+    Vote
+  </button>
+</div>
+<footer><small>&copy; KUPHY 2021</small></footer>

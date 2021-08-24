@@ -14,6 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { VoteComponent } from './components/vote/vote.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -31,6 +34,7 @@ const firebaseConfig = {
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    VoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ const firebaseConfig = {
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatRadioModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
