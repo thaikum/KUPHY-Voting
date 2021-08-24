@@ -1,11 +1,10 @@
 <div class="form-container">
-  <button class="close-form" (click)="navigateHome()">
-    <mat-icon>close</mat-icon>
-  </button>
-  <h3><b>KU Physics Club</b></h3>
   <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <h3>KU Physics Club</h3>
-    <h3>Login</h3>
+    <button class="close-form" (click)="navigateHome()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <h3><b>KU Physics Club</b></h3>
+    <h3 style="color: #d91010">Login</h3>
     <div class="example-container">
       <mat-form-field appearance="outline">
         <mat-label>Enter your email</mat-label>
