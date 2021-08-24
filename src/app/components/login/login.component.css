@@ -1,0 +1,29 @@
+.form-container {
+  height: 100%;
+  background-image: url("/assets/logo.jpeg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 1em;
+}
+form {
+  width: 88%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5em 1em 2em;
+  border-radius: 10px;
+  background-color: white;
+}
+
+mat-form-field {
+  width: 95%;
+}
+
+button {
+  width: 95%;
+  margin-left: 2%;
+  margin-top: 20px;
+}

@@ -1,0 +1,49 @@
+<div class="form-container">
+  <form>
+    <h2>KU Physics Club</h2>
+    <h3>Signup</h3>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput required />
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          [formControl]="email"
+          required
+        />
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>RegNO</mat-label>
+        <input matInput required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="first_password"
+          name="first_password"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput required [(ngModel)]="second_password" />
+        <mat-error *ngIf="">{{ PdMismatchError() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Login</button>
+  </form>
+</div>
