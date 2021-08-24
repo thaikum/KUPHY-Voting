@@ -4,6 +4,8 @@
       <mat-icon>close</mat-icon>
     </button>
     <h3><b>KU Physics Club</b></h3>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <h3>KU Physics Club</h3>
     <h3>Login</h3>
     <div class="example-container">
       <mat-form-field appearance="outline">
@@ -11,19 +13,34 @@
         <input
           matInput
           placeholder="pat@example.com"
-          [formControl]="email"
+          type="email"
+          name="email"
+          ngModel
           required
         />
-        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
         <mat-label>RegNO</mat-label>
-        <input matInput />
+        <input matInput ngModel type="password" name="password" />
       </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary">Login</button>
+    <mat-error>{{ error }}</mat-error>
+    <button
+      mat-raised-button
+      color="primary"
+      *ngIf="!loading"
+      [disabled]="loginForm.invalid"
+    >
+      Login
+    </button>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    <p>
+      <br />
+      Dont have an account? &nbsp;
+      <a routerLink="/signup"> Signup </a>
+    </p>
   </form>
 </div>

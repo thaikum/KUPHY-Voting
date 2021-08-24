@@ -13,7 +13,7 @@ export class AuthenticationService {
   ) {}
 
   async login(email: string, password: string): Promise<any> {
-    this._auth
+    await this._auth
       .setPersistence(auth.auth.Auth.Persistence.LOCAL)
       .then(async () => {
         await this._auth
@@ -29,13 +29,23 @@ export class AuthenticationService {
 
   async signUp(email: string, password: string): Promise<any> {
     await this._auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((usr) => {
-        return true;
-      })
-      .catch((err) => {
-        throw err;
+      .setPersistence(auth.auth.Auth.Persistence.LOCAL)
+      .then(async () => {
+        await this._auth
+          .createUserWithEmailAndPassword(email, password)
+          .then((usr) => {
+            return true;
+          })
+          .catch((err) => {
+            throw err;
+          });
       });
+  }
+
+  async signOut(): Promise<any> {
+    this._auth.signOut().then(() => {
+      return;
+    });
   }
 
   async getLoggedInUser(): Promise<any> {

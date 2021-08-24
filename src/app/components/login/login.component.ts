@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,17 +12,28 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   constructor(private router: Router) {}
+  loading = false;
+  error = '';
+  constructor(private _auth: AuthenticationService, private _route: Router) {}
 
   ngOnInit(): void {}
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  login(loginForm: NgForm) {
+    this.loading = true;
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+    const password = loginForm.value.password;
+    const email = loginForm.value.email;
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    this._auth
+      .login(email, password)
+      .then(() => {
+        this.loading = false;
+        this._route.navigate(['/']).then(() => {});
+      })
+      .catch((err) => {
+        this.loading = false;
+        this.error = err.message;
+      });
   }
   navigateHome() {
     this.router.navigate(['']);

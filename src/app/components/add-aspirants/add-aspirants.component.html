@@ -1,0 +1,34 @@
+<div>
+  <form #addAspirantForm="ngForm" (ngSubmit)="add(addAspirantForm)">
+    <mat-form-field appearance="outline">
+      <mat-label> RegNo: </mat-label>
+      <input matInput type="text" name="regNo" ngModel />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label> Nickname </mat-label>
+      <input matInput type="text" name="nickName" ngModel />
+    </mat-form-field>
+    <mat-radio-group aria-label="Position Aspiring">
+      <br />
+      <mat-label>Position Aspiring:</mat-label>
+      <mat-radio-button
+        #btn
+        *ngFor="let position of positions"
+        [value]="position"
+        (change)="changed(btn.value)"
+        name="position"
+      >
+        {{ position }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <br />
+    <mat-label> Photo: </mat-label>
+    <input type="file" name="profilePic" ngModel />
+    <br />
+    <br />
+    <button *ngIf="!loading" type="submit" mat-raised-button>
+      Add Aspirant
+    </button>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+  </form>
+</div>

@@ -17,6 +17,11 @@ import { MatInputModule } from '@angular/material/input';
 import { VoteComponent } from './components/vote/vote.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AddAspirantsComponent } from './components/add-aspirants/add-aspirants.component';
+import { AddPositionComponent } from './components/add-position/add-position.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -35,6 +40,8 @@ const firebaseConfig = {
     SignupComponent,
     HomeComponent,
     VoteComponent,
+    AddAspirantsComponent,
+    AddPositionComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,9 @@ const firebaseConfig = {
     ReactiveFormsModule,
     MatRadioModule,
     MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
