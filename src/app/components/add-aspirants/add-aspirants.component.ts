@@ -36,11 +36,14 @@ export class AddAspirantsComponent implements OnInit {
     const val = addAspirantForm.value;
     console.log(val);
 
-    await this._aspirant.getAspirantByReg(val.regNo).subscribe((v) => {
+    this._aspirant.getAspirantByReg(val.regNo).subscribe((v) => {
+      console.log(v);
       if (!!v.docId) {
         this.error = 'user not registered';
         return;
       }
+
+      console.log(v?.docId);
 
       this._aspirant
         .registerAspirant(v.docId, val.profilePic, val.nickName, this.value)
