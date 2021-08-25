@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AspirantService } from '../../services/aspirant.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-aspirants',
@@ -27,7 +28,7 @@ export class AddAspirantsComponent implements OnInit {
     '2th Year Male Representative',
     '2th Year Female Representative',
   ];
-  constructor(private _aspirant: AspirantService) {}
+  constructor(private _aspirant: AspirantService, private _route: Router) {}
 
   ngOnInit(): void {}
 
@@ -61,5 +62,8 @@ export class AddAspirantsComponent implements OnInit {
 
   changed(value: any) {
     this.value = value;
+  }
+  navigateHome() {
+    this._route.navigate(['']);
   }
 }
