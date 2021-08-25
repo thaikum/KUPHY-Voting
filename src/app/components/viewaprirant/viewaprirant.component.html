@@ -5,12 +5,17 @@
     <div *ngFor="let aspirant of President" class="single-aspirant">
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -18,12 +23,17 @@
     <div *ngFor="let aspirant of VicePresident" class="single-aspirant">
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -31,12 +41,17 @@
     <div *ngFor="let aspirant of SecretaryGeneral" class="single-aspirant">
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -47,12 +62,17 @@
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -60,41 +80,56 @@
     <div *ngFor="let aspirant of OrganisingSecretary" class="single-aspirant">
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
-    <h2>Organisin Secretary</h2>
+    <h2>Deputy Organising Secretary</h2>
     <div
       *ngFor="let aspirant of DeputyOrganisingSecretary"
       class="single-aspirant"
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote Count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
-    <h2>Tresurer</h2>
-    <div *ngFor="let aspirant of Treasure" class="single-aspirant">
+    <h2>Treasurer</h2>
+    <div *ngFor="let aspirant of Treasurer" class="single-aspirant">
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -102,12 +137,17 @@
     <div *ngFor="let aspirant of OverallRepresentative" class="single-aspirant">
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -118,12 +158,17 @@
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -134,12 +179,17 @@
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -150,12 +200,17 @@
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -166,12 +221,17 @@
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -182,12 +242,17 @@
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
 
@@ -198,12 +263,17 @@
     >
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ aspirant.aspirantPicLocation }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ aspirant.aspirantName }}, <i>{{ aspirant.aspirantNickName }}</i>
         </h4>
         <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+        <h4>Vote count: {{ aspirant.votesCount }}</h4>
       </section>
     </div>
   </form>

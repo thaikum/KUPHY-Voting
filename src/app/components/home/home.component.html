@@ -14,18 +14,32 @@
     Please wait as you are being Verified
   </p>
 
-  <p class="success" *ngIf="isVerified">
+  <p class="success" *ngIf="isVerified && !hasVoted">
     Congratulations! You were verified successfuly. Please wait for voting time
   </p>
-  <!--  <p class="thanks-message" *ngIf="has_voted">Thankyou for voting</p>-->
+
+  <p class="success" *ngIf="hasVoted">
+    Thank you for voting. The results will be released ASAP
+  </p>
 
   <button
+    *ngIf="!hasVoted && isVerified"
+    [disabled]="!voteSessionActive"
     mat-raised-button
     color="primary"
     class="vote-btn"
     (click)="navigateVote()"
   >
     Vote
+  </button>
+  <button
+    *ngIf="hasVoted"
+    [disabled]="true"
+    mat-raised-button
+    color="primary"
+    class="vote-btn"
+  >
+    View Results
   </button>
 </div>
 <footer><small>&copy; KUPHY 2021</small></footer>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AspirantService } from '../../services/aspirant.service';
 import { VoteService } from '../../services/vote.service';
+import { take } from 'rxjs/operators';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
@@ -27,24 +29,32 @@ export class VoteComponent implements OnInit {
     '2th Year Male Representative',
     '2th Year Female Representative',
   ];
+
+  times = 0;
   constructor(
     private router: Router,
     private _asp: AspirantService,
-    private _vote: VoteService
+    private _vote: VoteService,
+    private _user: UserService
   ) {}
 
   indexPosition = 0;
   ngOnInit(): void {
+    this.checkHasVoted();
+    const check = localStorage.getItem('lastIndex');
+    if (check == null || check == undefined) {
+      localStorage.setItem('lastIndex', '0');
+    }
     this.changePosition();
   }
 
-  getAspirants(positions: string) {
-    this._asp.getAspirants(positions).subscribe((aspirants) => {
-      if (aspirants.length == 0) {
-        this.changePosition();
+  getAspirants(position: string) {
+    this._asp.getAspirants(position).subscribe((aspirants) => {
+      if (this.times == 0) {
+        // @ts-ignore
+        this.aspirants = aspirants;
+        this.times = 1;
       }
-      // @ts-ignore
-      this.aspirants = aspirants;
     });
   }
 
@@ -70,13 +80,21 @@ export class VoteComponent implements OnInit {
   }
 
   changePosition(): void {
+    this.aspirants = [];
     this.votedId = '';
-    this.title = this.positions[this.indexPosition];
-    this.getAspirants(this.positions[this.indexPosition]);
-    if (this.indexPosition === this.positions.length - 1) {
+
+    const index = parseInt(<string>localStorage.getItem('lastIndex'));
+
+    if (index === this.positions.length) {
       this._vote.setHasVotedTrue();
+      this.router.navigate(['/']);
+    } else {
+      this.title = this.positions[index];
+      this.getAspirants(this.title);
+
+      let item = parseInt(<string>localStorage.getItem('lastIndex')) + 1;
+      localStorage.setItem('lastIndex', String(item));
     }
-    this.indexPosition++;
   }
 
   navigateHome() {
@@ -84,6 +102,7 @@ export class VoteComponent implements OnInit {
   }
 
   vote() {
+    this.times = 0;
     this._vote
       .voteFor(this.votedId)
       .then(() => {
@@ -92,6 +111,21 @@ export class VoteComponent implements OnInit {
       .catch((err) => {
         throw err;
       });
+  }
+
+  checkHasVoted() {
+    const userId = localStorage.getItem('user');
+    if (typeof userId === 'string') {
+      this._user.getUser(userId).subscribe((user) => {
+        if (user?.hasVoted) {
+          this.router.navigate(['/']);
+        }
+      });
+    }
+  }
+
+  keepRecord(index: number) {
+    localStorage.setItem('lastIndex', String(index));
   }
 
   changeVote(aspId: any) {

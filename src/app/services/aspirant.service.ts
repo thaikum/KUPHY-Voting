@@ -106,4 +106,9 @@ export class AspirantService {
     );
     return this.aspCol.valueChanges({ idField: 'aspId' });
   }
+
+  getAllAspirants(): Observable<Aspirant[]> {
+    this.aspCol = this._firestore.collection('aspirants');
+    return this.aspCol.valueChanges({ idField: 'aspId' });
+  }
 }

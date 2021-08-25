@@ -17,10 +17,14 @@
   <button mat-button (click)="switchPage('manageVote')">Vote Management</button>
 </div>
 
-<app-verify-voter *ngIf="page === 'Verify User'"></app-verify-voter>
-<app-add-aspirants *ngIf="page === 'Add Aspirant'"></app-add-aspirants>
-<div *ngIf="page === 'manageVote'">
-  <button mat-raised-button (click)="commenceVoting()">
-    {{ sessionHasStarted ? "End Voting" : "Commence voting" }}
-  </button>
+<div class="body">
+  <app-verify-voter *ngIf="page === 'Verify User'"></app-verify-voter>
+  <app-add-aspirants *ngIf="page === 'Add Aspirant'"></app-add-aspirants>
+  <app-viewaprirant *ngIf="page === 'View Aspirants'"></app-viewaprirant>
+
+  <div *ngIf="page === 'manageVote'" class="manageVoting">
+    <button mat-raised-button (click)="commenceVoting()" color="primary">
+      {{ sessionHasStarted ? "End Voting" : "Commence voting" }}
+    </button>
+  </div>
 </div>

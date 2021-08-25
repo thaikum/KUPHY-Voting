@@ -44,7 +44,8 @@ export class AdminComponent implements OnInit {
   }
   voteStatus() {
     this._voteMng.getVotingStatus().subscribe((val) => {
-      this.sessionHasStarted = val;
+      // @ts-ignore
+      this.sessionHasStarted = val.start;
     });
   }
   commenceVoting() {
