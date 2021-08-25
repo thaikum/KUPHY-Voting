@@ -1,10 +1,26 @@
-<button class="close-form" (click)="navigateHome()">
-  <mat-icon>west</mat-icon>
-</button>
-<div class="router">
-  <button mat-button>User Verification</button>
-  <button mat-button [disabled]="true">Add Aspirant</button>
-  <button mat-button [disabled]="true">View Aspirants</button>
-  <button mat-button [disabled]="true">Vote Management</button>
+<div class="top">
+  <button class="close-form" (click)="navigateHome()">
+    <mat-icon>west</mat-icon>
+  </button>
+
+  <h2>{{ page }}</h2>
 </div>
-<app-verify-voter></app-verify-voter>
+
+<div class="router">
+  <button mat-button (click)="switchPage('Verify User')">
+    User Verification
+  </button>
+  <button mat-button (click)="switchPage('Add Aspirant')">Add Aspirant</button>
+  <button mat-button (click)="switchPage('View Aspirants')">
+    View Aspirants
+  </button>
+  <button mat-button (click)="switchPage('manageVote')">Vote Management</button>
+</div>
+
+<app-verify-voter *ngIf="page === 'Verify User'"></app-verify-voter>
+<app-add-aspirants *ngIf="page === 'Add Aspirant'"></app-add-aspirants>
+<div *ngIf="page === 'manageVote'">
+  <button mat-raised-button (click)="commenceVoting()">
+    {{ sessionHasStarted ? "End Voting" : "Commence voting" }}
+  </button>
+</div>

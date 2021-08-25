@@ -12,50 +12,46 @@ export class VoteService {
   ) {}
 
   async voteFor(userId: string): Promise<any> {
-    let voter = '';
-    await this._auth.getLoggedInUser().then((id) => {
-      voter = id;
-    });
+    const voter = localStorage.getItem('user');
+    console.log(userId);
     let hasVoted;
     await this._firestore
       .doc('users/' + voter)
-      .get()
-      .subscribe((snapshot) => {
-        snapshot.data();
-        //@ts-ignore
-        hasVoted = snapshot.data()?.hasVoted;
-      });
-
-    if (hasVoted) {
-      throw new Error('has already voted');
-    }
-    this._firestore
-      .doc('users/' + userId)
-      .get()
-      .subscribe(async (doc) => {
-        const data = doc.data();
-        //@ts-ignore
-        if (data?.votes) {
-          //@ts-ignore
-          const newNotes = data?.votes + 1;
-          await this._firestore
-            .doc('users/' + userId)
-            .update({ votes: newNotes })
-            .then(async () => {
-              this._firestore
-                .doc('users/' + voter)
-                .update({ hasVoted: true })
-                .then(() => true)
+      .ref.get()
+      .then((user) => {
+        // @ts-ignore
+        if (!user.data()?.hasVoted) {
+          this._firestore
+            .doc('aspirants/' + userId)
+            .ref.get()
+            .then((dt) => {
+              const data = dt.data();
+              console.log(data);
+              //@ts-ignore
+              const votes = data.votesCount + 1;
+              dt.ref
+                .update({ votesCount: votes })
+                .then(() => {
+                  return true;
+                })
                 .catch((err) => {
                   throw err;
                 });
-            })
-            .catch((err) => {
-              return err;
             });
         } else {
-          throw new Error('The user is not a voter');
+          throw new Error('has already voted');
         }
+      });
+  }
+
+  async setHasVotedTrue(): Promise<any> {
+    const userId = localStorage.getItem('user');
+    this._firestore
+      .doc('users/' + userId)
+      .update({ hasVoted: true })
+      .then()
+      .catch((err) => {
+        return err;
       });
   }
 }
