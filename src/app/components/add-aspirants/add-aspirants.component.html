@@ -1,8 +1,13 @@
 <div>
   <form #addAspirantForm="ngForm" (ngSubmit)="add(addAspirantForm)">
+    <button class="close-form" (click)="navigateHome()">
+      <mat-icon>west</mat-icon>
+    </button>
+    <h2>Add Aspirant</h2>
+
     <mat-form-field appearance="outline">
       <mat-label> RegNo: </mat-label>
-      <input matInput type="text" name="regNo" ngModel />
+      <input matInput type="text" name="regNo" ngModel required />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label> Aspirant name: </mat-label>
@@ -10,28 +15,34 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label> Nickname </mat-label>
-      <input matInput type="text" name="nickName" ngModel />
+      <input matInput type="text" name="nickName" ngModel required />
     </mat-form-field>
-    <mat-radio-group aria-label="Position Aspiring">
-      <br />
-      <mat-label>Position Aspiring:</mat-label>
-      <mat-radio-button
-        #btn
-        *ngFor="let position of positions"
-        [value]="position"
-        (change)="changed(btn.value)"
-        name="position"
-      >
-        {{ position }}
-      </mat-radio-button>
-    </mat-radio-group>
-    <br />
-    <mat-label> Photo: </mat-label>
-    <input type="file" name="profilePic" (change)="changeFile($event)" />
-    <br />
-    <mat-error>{{ error }}</mat-error>
-    <br />
-    <button *ngIf="!loading" type="submit" mat-raised-button>
+    <mat-form-field appearance="outline">
+      <mat-label>Select</mat-label>
+      <mat-select required>
+        <mat-option *ngFor="let position of positions" value="{{ position }}">{{
+          position
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="file-input-container">
+      <input
+        class="custom-file-input"
+        type="file"
+        name="profilePic"
+        ngModel
+        required=""
+      />
+    </div>
+
+    <button
+      class="add-aspirant-button"
+      *ngIf="!loading"
+      type="submit"
+      mat-raised-button
+      [disabled]="addAspirantForm.invalid"
+      color="primary"
+    >
       Add Aspirant
     </button>
     <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>

@@ -24,6 +24,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { VerifyVoterComponent } from './components/verify-voter/verify-voter.component';
 import { MatCardModule } from '@angular/material/card';
 import { AdminComponent } from './components/admin/admin.component';
+import { MatSelectModule } from '@angular/material/select';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -65,6 +66,7 @@ const firebaseConfig = {
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatCardModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
