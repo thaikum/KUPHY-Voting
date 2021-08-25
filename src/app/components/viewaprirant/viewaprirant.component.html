@@ -1,0 +1,210 @@
+<div class="vote-container">
+  <h1>All Aspirants</h1>
+  <form>
+    <h2>President</h2>
+    <div *ngFor="let aspirant of President" class="single-aspirant">
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>Vice President</h2>
+    <div *ngFor="let aspirant of VicePresident" class="single-aspirant">
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>Secretary General</h2>
+    <div *ngFor="let aspirant of SecretaryGeneral" class="single-aspirant">
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>Deputy Secretary General</h2>
+    <div
+      *ngFor="let aspirant of DeputySecretaryGeneral"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>Organisin Secretary</h2>
+    <div *ngFor="let aspirant of OrganisingSecretary" class="single-aspirant">
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>Organisin Secretary</h2>
+    <div
+      *ngFor="let aspirant of DeputyOrganisingSecretary"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>Tresurer</h2>
+    <div *ngFor="let aspirant of Treasure" class="single-aspirant">
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>Overall Representative</h2>
+    <div *ngFor="let aspirant of OverallRepresentative" class="single-aspirant">
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>4th Year Male Representative</h2>
+    <div
+      *ngFor="let aspirant of FrthYearMaleRepresentative"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>4th Year Female Representative</h2>
+    <div
+      *ngFor="let aspirant of FrthYearFemaleRepresentative"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>3th Year Male Representative</h2>
+    <div
+      *ngFor="let aspirant of ThirdthYearMaleRepresentative"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>3th Year Female Representative</h2>
+    <div
+      *ngFor="let aspirant of ThirdYearFemaleRepresentative"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>2th Year Male Representative</h2>
+    <div
+      *ngFor="let aspirant of SecondYearMaleRepresentative"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+
+    <h2>2th Year female Representative</h2>
+    <div
+      *ngFor="let aspirant of SecondYearFemaleRepresentative"
+      class="single-aspirant"
+    >
+      <section class="image-section">
+        <div class="image-container">
+          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+        </div>
+        <h4>
+          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+        </h4>
+        <h4><span>Position:</span> {{ aspirant.aspirantPosition }}</h4>
+      </section>
+    </div>
+  </form>
+</div>

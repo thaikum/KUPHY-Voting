@@ -25,6 +25,7 @@ import { VerifyVoterComponent } from './components/verify-voter/verify-voter.com
 import { MatCardModule } from '@angular/material/card';
 import { AdminComponent } from './components/admin/admin.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ViewaprirantComponent } from './components/viewaprirant/viewaprirant.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -48,6 +49,7 @@ const firebaseConfig = {
     AddPositionComponent,
     VerifyVoterComponent,
     AdminComponent,
+    ViewaprirantComponent,
   ],
   imports: [
     BrowserModule,
