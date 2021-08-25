@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { AddAspirantsComponent } from './components/add-aspirants/add-aspirants.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ViewaprirantComponent } from './components/viewaprirant/viewaprirant.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'vote', component: VoteComponent },
   { path: 'add-aspirant', component: AddAspirantsComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'viewaspirants', component: ViewaprirantComponent },
 ];
 
 @NgModule({

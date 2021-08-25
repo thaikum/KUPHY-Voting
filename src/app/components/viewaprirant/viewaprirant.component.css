@@ -1,0 +1,107 @@
+.vote-container {
+  height: 100%;
+  margin-top: 1em;
+}
+.single-aspirant {
+  margin: 10px;
+  /*border: solid 1px green;*/
+  width: 80%;
+  display: flex;
+  height: 200px;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.single-aspirant .image-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 10px;
+  background-color: purple;
+}
+.single-aspirant:first-child {
+  margin-top: 1.7em;
+}
+.image-container img {
+  height: auto;
+}
+.image-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  flex-direction: column;
+}
+
+.single-aspirant h4 {
+  text-align: center;
+}
+.single-aspirant h4:first-child {
+  margin-top: 5px;
+}
+.single-aspirant h4:last-child {
+  margin-top: -5px;
+  line-height: unset;
+  font-size: 1.2em;
+}
+.single-aspirant span {
+  color: maroon;
+}
+.vote-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 1.2em;
+}
+.submit-vote {
+  margin-bottom: 3em;
+  margin-top: 1em;
+}
+.position-name {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+  display: flex;
+}
+.position-name h3 {
+  font-size: 2em;
+  line-height: 0;
+  padding-top: 20px;
+}
+.position-name button {
+  background: none;
+  outline: none;
+  border: none;
+  margin-right: 3em;
+  margin-left: 15px;
+}
+h2 {
+  margin-top: 1em;
+  text-decoration: underline;
+  color: maroon;
+}
+h1 {
+  text-align: center;
+}
+@media screen and(min-width: 600px) {
+  .single-aspirant {
+    width: 50%;
+  }
+}
