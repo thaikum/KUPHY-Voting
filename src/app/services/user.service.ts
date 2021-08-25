@@ -66,7 +66,7 @@ export class UserService {
     return exists;
   }
 
-  async getUsers(): Promise<any> {
+  getUsers(): any {
     return this._firestore
       .collection('users')
       .valueChanges({ idField: 'docId' });

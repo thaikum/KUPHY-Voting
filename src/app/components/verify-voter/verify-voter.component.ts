@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-verify-voter',
@@ -9,8 +10,12 @@ export class VerifyVoterComponent implements OnInit {
   verifiedUser = [];
   pendingVerification = [];
   unverified = [];
-  constructor() {}
+  constructor(private _user: UserService) {}
 
-  getUsers(): void {}
+  // getUsers(): void {
+  //   this._user.getUsers().subscribe((user) => {
+  //     console.log(user);
+  //   });
+  // }
   ngOnInit(): void {}
 }
