@@ -22,6 +22,8 @@ import { AddAspirantsComponent } from './components/add-aspirants/add-aspirants.
 import { AddPositionComponent } from './components/add-position/add-position.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { VerifyVoterComponent } from './components/verify-voter/verify-voter.component';
+import { MatCardModule } from '@angular/material/card';
+import { AdminComponent } from './components/admin/admin.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -32,6 +34,7 @@ const firebaseConfig = {
   appId: '1:95416969555:web:28ce810f9a338d312099a6',
 };
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,7 @@ const firebaseConfig = {
     AddAspirantsComponent,
     AddPositionComponent,
     VerifyVoterComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,8 +64,10 @@ const firebaseConfig = {
     MatIconModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
+//@ts-ignore
 export class AppModule {}

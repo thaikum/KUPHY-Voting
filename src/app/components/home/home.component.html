@@ -1,7 +1,7 @@
 <header>
   <nav>
     <a routerLink="/">Home</a>
-    <a routerLink="/admin">Admin</a>
+    <a routerLink="/admin" *ngIf="isAdmin">Admin</a>
     <a routerLink="/login">Login</a>
   </nav>
 
@@ -10,8 +10,14 @@
 
 <div class="message-container">
   <p>Welcome to <b>KU Physics Club</b> voting app</p>
-  <p class="auth-message">Please wait as you are being authentication</p>
-  <p class="thanks-message" *ngIf="has_voted">Thankyou for voting</p>
+  <p class="auth-message" *ngIf="!isVerified">
+    Please wait as you are being Verified
+  </p>
+
+  <p class="success" *ngIf="isVerified">
+    Congratulations! You were verified successfuly. Please wait for voting time
+  </p>
+  <!--  <p class="thanks-message" *ngIf="has_voted">Thankyou for voting</p>-->
 
   <button
     mat-raised-button
@@ -23,5 +29,4 @@
   </button>
 </div>
 <footer><small>&copy; KUPHY 2021</small></footer>
-<p>home works!</p>
 <button mat-button (click)="logout()">Logout</button>
