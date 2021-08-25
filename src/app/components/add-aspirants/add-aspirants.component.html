@@ -1,8 +1,5 @@
 <div>
   <form #addAspirantForm="ngForm" (ngSubmit)="add(addAspirantForm)">
-    <button class="close-form" (click)="navigateHome()">
-      <mat-icon>west</mat-icon>
-    </button>
     <h2>Add Aspirant</h2>
 
     <mat-form-field appearance="outline">
@@ -19,7 +16,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Select</mat-label>
-      <mat-select required>
+      <mat-select required (valueChange)="changed($event)">
         <mat-option *ngFor="let position of positions" value="{{ position }}">{{
           position
         }}</mat-option>
@@ -32,9 +29,11 @@
         name="profilePic"
         ngModel
         required=""
+        (change)="changeFile($event)"
       />
     </div>
 
+    <mat-error>{{ error }}</mat-error>
     <button
       class="add-aspirant-button"
       *ngIf="!loading"

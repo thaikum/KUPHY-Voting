@@ -38,6 +38,8 @@ export class AddAspirantsComponent implements OnInit {
     this.error = '';
     const val = addAspirantForm.value;
 
+    console.log(this.positionValue);
+
     await this._aspirant
       .aspirantEsists(val.regNo.toUpperCase())
       .then(async (exists) => {
@@ -46,6 +48,13 @@ export class AddAspirantsComponent implements OnInit {
           this.error = 'User alredy exists';
           return;
         } else {
+          console.log(
+            val.regNo.toUpperCase(),
+            val.aspirantName,
+            this.imageFile,
+            val.nickName,
+            this.positionValue
+          );
           await this._aspirant
             .registerAspirant(
               val.regNo.toUpperCase(),
@@ -59,8 +68,9 @@ export class AddAspirantsComponent implements OnInit {
               this.loading = false;
             })
             .catch((err) => {
-              console.log(err);
               this.loading = false;
+
+              throw err;
             });
         }
       });
@@ -74,8 +84,5 @@ export class AddAspirantsComponent implements OnInit {
     if (event.target?.files.length > 0) {
       this.imageFile = event.target?.files[0];
     }
-  }
-  navigateHome() {
-    this._route.navigate(['']);
   }
 }
