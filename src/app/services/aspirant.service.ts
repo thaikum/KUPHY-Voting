@@ -7,6 +7,7 @@ import {
 import { AngularFireStorage } from '@angular/fire/storage';
 import { UserDetails } from './user.service';
 import { take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 interface Aspirant {
   aspirantName: string;
@@ -97,5 +98,12 @@ export class AspirantService {
       });
 
     return exists;
+  }
+
+  getAspirants(position: string): Observable<Aspirant[]> {
+    this.aspCol = this._firestore.collection('aspirants', (ref) =>
+      ref.where('aspirantPosition', '==', position)
+    );
+    return this.aspCol.valueChanges({ idField: 'aspId' });
   }
 }

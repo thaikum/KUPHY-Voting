@@ -26,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AdminComponent } from './components/admin/admin.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ViewaprirantComponent } from './components/viewaprirant/viewaprirant.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -69,6 +70,7 @@ const firebaseConfig = {
     MatProgressBarModule,
     MatCardModule,
     MatSelectModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

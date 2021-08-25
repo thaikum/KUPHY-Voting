@@ -1,27 +1,40 @@
 <div class="position-name">
   <button (click)="navigateHome()"><mat-icon>west</mat-icon></button>
-  <h3>{{ positions[0] }} Position</h3>
+  <h3>{{ title }} Position</h3>
 </div>
 <div class="vote-container">
   <form>
     <div *ngFor="let aspirant of aspirants" class="single-aspirant">
       <section class="image-section">
         <div class="image-container">
-          <img src="{{ aspirant.imageUrl }}" width="100%" height="100%" />
+          <img
+            src="{{ getAsp(aspirant).imageUrl }}"
+            width="100%"
+            height="100%"
+          />
         </div>
         <h4>
-          {{ aspirant.name }}, <i>{{ aspirant.nickName }}</i>
+          {{ getAsp(aspirant).name }}, <i>{{ getAsp(aspirant).nickName }}</i>
         </h4>
-        <h4><span>Position:</span> {{ aspirant.position }}</h4>
+        <h4><span>Position:</span> {{ getAsp(aspirant).position }}</h4>
       </section>
       <section class="vote-section">
-        <mat-radio-button color="warn" name="vote" value="{{ aspirant.regNo }} "
+        <mat-radio-button
+          color="warn"
+          name="vote"
+          (change)="changeVote(getAsp(aspirant).aspId)"
+          value="{{ getAsp(aspirant).aspId }} "
           >Vote</mat-radio-button
         >
       </section>
     </div>
 
-    <button class="submit-vote" mat-raised-button color="accent">
+    <button
+      class="submit-vote"
+      mat-raised-button
+      color="accent"
+      (click)="vote()"
+    >
       Submit Vote
     </button>
   </form>
