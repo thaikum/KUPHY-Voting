@@ -21,7 +21,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  logout() {}
+  logout() {
+    this._auth.signOut().then(() => {
+      this._route.navigate(['/login']);
+    });
+  }
 
   navigateVote() {}
 }

@@ -1,7 +1,59 @@
-mat-radio-button {
-  display: block;
-  padding: 2px 0 2px 30px;
+form {
+  display: flex;
+  height: 100%;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
 }
-mat-label {
-  font-weight: bold;
+
+mat-form-field {
+  width: 80%;
+}
+.close-form {
+  border: none;
+  outline: none;
+  background: none;
+  margin-left: -80%;
+}
+.add-aspirant-button {
+  margin-top: 2em;
+}
+
+.file-input-container {
+}
+.custom-file-input {
+  color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Select Apirant Image";
+  color: black;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  border: 1px solid rgba(205, 205, 205, 0.9);
+  border-radius: 3px;
+  padding: 16px 16px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-size: 10pt;
+  width: 85%;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+body {
+  padding: 20px;
 }

@@ -31,6 +31,7 @@
       color="primary"
       *ngIf="!loading"
       [disabled]="loginForm.invalid"
+      class="login-button"
     >
       Login
     </button>
@@ -38,7 +39,7 @@
     <p>
       <br />
       Dont have an account? &nbsp;
-      <a routerLink="/signup"> Signup </a>
+      <a routerLink="/signup"> Register </a>
     </p>
   </form>
 </div>

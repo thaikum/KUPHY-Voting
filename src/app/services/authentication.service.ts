@@ -52,6 +52,7 @@ export class AuthenticationService {
 
   async signOut(): Promise<any> {
     this._auth.signOut().then(() => {
+      localStorage.removeItem('user');
       return;
     });
   }

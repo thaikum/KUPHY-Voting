@@ -55,11 +55,18 @@ button {
 }
 @media screen and (min-width: 600px) {
   form {
-    width: 55%;
+    width: 50%;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
   .form-container {
     background-repeat: repeat;
+  }
+  .login-button {
+    width: 20%;
+    margin-left: 40%;
+  }
+  .close-form {
+    left: -45%;
   }
 }
