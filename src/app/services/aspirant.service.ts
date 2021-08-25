@@ -6,59 +6,96 @@ import {
 } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { UserDetails } from './user.service';
-import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+
+interface Aspirant {
+  aspirantName: string;
+  aspirantRegNo: string;
+  aspirantNickName: string;
+  aspirantPicLocation?: string;
+  aspirantPosition: string;
+  votesCount: number;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class AspirantService {
   aspDoc!: AngularFirestoreDocument<UserDetails>;
-  aspCol!: AngularFirestoreCollection<UserDetails>;
+  aspCol!: AngularFirestoreCollection<Aspirant>;
+
   constructor(
     private _firestore: AngularFirestore,
     private _storage: AngularFireStorage
   ) {}
 
   async registerAspirant(
-    userId: string,
+    aspirantRegNo: string,
+    aspirantName: string,
     aspImage: File,
-    aspNickName: string,
-    position: string
+    aspirantNickName: string,
+    aspirantPosition: string
   ): Promise<any> {
-    this.aspDoc = this._firestore.doc('users/' + userId);
-    this.aspDoc
-      .update({ isAspirant: true, positionAspiredFor: position, votes: 0 })
-      .then(() => {
-        this._storage
-          .upload(userId + aspImage.name, aspImage)
-          .then((imageRef) => {
-            imageRef.ref.getDownloadURL().then((url) => {
-              this.aspDoc
-                .update({
-                  photoLocation: url,
-                })
-                .then(() => true)
-                .catch((err) => {
-                  throw err;
-                });
-            });
-          });
-      })
-      .catch((err) => {
-        throw err;
+    this.aspCol = this._firestore.collection('aspirants');
+    if (aspImage) {
+      const rand = Math.floor(Math.random() + 1000).valueOf();
+      this._storage.upload(rand + aspImage.name, aspImage).then((ref) => {
+        ref.ref.getDownloadURL().then(async (url) => {
+          if (typeof url === 'string') {
+            await this.aspCol
+              .add({
+                aspirantRegNo,
+                aspirantName,
+                aspirantNickName,
+                aspirantPosition,
+                votesCount: 0,
+                aspirantPicLocation: url,
+              })
+              .then((ref) => {
+                return true;
+              })
+              .catch((err) => {
+                throw err;
+              });
+          } else {
+            await this.aspCol
+              .add({
+                aspirantRegNo,
+                aspirantName,
+                aspirantNickName,
+                aspirantPosition,
+                votesCount: 0,
+                aspirantPicLocation: url,
+              })
+              .then((ref) => {
+                return true;
+              })
+              .catch((err) => {
+                throw err;
+              });
+          }
+        });
       });
+    }
   }
 
-  getAspirantByPosition(positionName: string): Observable<UserDetails[]> {
-    this.aspCol = this._firestore.collection('users', (ref) =>
-      ref.where('positionAspiredFor', '==', positionName).orderBy('votes')
+  async aspirantEsists(regNo: string): Promise<any> {
+    this.aspCol = this._firestore.collection('aspirants', (ref) =>
+      ref.where('aspirantRegNo', '==', regNo)
     );
-    return this.aspCol.valueChanges({ idField: 'userId' });
-  }
 
-  getAspirantByReg(reg: string): Observable<any> {
-    return this._firestore
-      .collection('users', (ref) => ref.where('regNo', '==', reg))
-      .valueChanges({ idField: 'docId' });
+    let exists = false;
+    await this.aspCol
+      .get()
+      .toPromise()
+      .then((dt) => {
+        dt.forEach((data) => {
+          if (data.data()) {
+            exists = true;
+          }
+        });
+      });
+
+    return exists;
   }
 }

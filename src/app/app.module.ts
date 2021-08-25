@@ -21,6 +21,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AddAspirantsComponent } from './components/add-aspirants/add-aspirants.component';
 import { AddPositionComponent } from './components/add-position/add-position.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { VerifyVoterComponent } from './components/verify-voter/verify-voter.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDfPPjgUR_6C9B7ro_q8Er9lOc7YqcsIgE',
@@ -41,6 +42,7 @@ const firebaseConfig = {
     VoteComponent,
     AddAspirantsComponent,
     AddPositionComponent,
+    VerifyVoterComponent,
   ],
   imports: [
     BrowserModule,

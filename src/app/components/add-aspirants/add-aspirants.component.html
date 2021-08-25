@@ -5,6 +5,10 @@
       <input matInput type="text" name="regNo" ngModel />
     </mat-form-field>
     <mat-form-field appearance="outline">
+      <mat-label> Aspirant name: </mat-label>
+      <input matInput type="text" name="aspirantName" ngModel />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label> Nickname </mat-label>
       <input matInput type="text" name="nickName" ngModel />
     </mat-form-field>
@@ -23,8 +27,9 @@
     </mat-radio-group>
     <br />
     <mat-label> Photo: </mat-label>
-    <input type="file" name="profilePic" ngModel />
+    <input type="file" name="profilePic" (change)="changeFile($event)" />
     <br />
+    <mat-error>{{ error }}</mat-error>
     <br />
     <button *ngIf="!loading" type="submit" mat-raised-button>
       Add Aspirant
