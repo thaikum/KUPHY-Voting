@@ -25,4 +25,8 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.chenckAdminStatus();
   }
+
+  navigateHome() {
+    this._router.navigate(['/']);
+  }
 }

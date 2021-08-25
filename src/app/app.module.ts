@@ -71,5 +71,4 @@ const firebaseConfig = {
   providers: [],
   bootstrap: [AppComponent],
 })
-//@ts-ignore
 export class AppModule {}

@@ -1,0 +1,24 @@
+.router {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1em 0 2em 0;
+  background-color: antiquewhite;
+}
+.close-form {
+  border: none;
+  outline: none;
+  background: none;
+  margin-left: 4%;
+  margin-top: 1em;
+}
+
+@media screen and (min-width: 600px) {
+  .router {
+    width: 60%;
+    margin: 1em auto 2em auto;
+  }
+  .close-form {
+    margin-left: 21%;
+  }
+}

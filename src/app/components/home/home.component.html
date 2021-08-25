@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <a routerLink="/admin" *ngI="isAdmin">Admin</a>
+    <a routerLink="/admin" *ngIf="isAdmin">Admin</a>
     <a routerLink="/">Home</a>
     <a routerLink="/login">Logout</a>
   </nav>
@@ -19,7 +19,6 @@
   </p>
   <!--  <p class="thanks-message" *ngIf="has_voted">Thankyou for voting</p>-->
 
-
   <button
     mat-raised-button
     color="primary"
@@ -30,5 +29,3 @@
   </button>
 </div>
 <footer><small>&copy; KUPHY 2021</small></footer>
-<button mat-button (click)="logout()">Logout</button>
-

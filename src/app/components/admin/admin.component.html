@@ -1,1 +1,10 @@
+<button class="close-form" (click)="navigateHome()">
+  <mat-icon>west</mat-icon>
+</button>
+<div class="router">
+  <button mat-button>User Verification</button>
+  <button mat-button [disabled]="true">Add Aspirant</button>
+  <button mat-button [disabled]="true">View Aspirants</button>
+  <button mat-button [disabled]="true">Vote Management</button>
+</div>
 <app-verify-voter></app-verify-voter>
