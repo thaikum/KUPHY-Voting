@@ -5,6 +5,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { AuthenticationService } from './authentication.service';
+import { Observable } from 'rxjs';
 
 export interface UserDetails {
   userName: string;
@@ -66,7 +67,7 @@ export class UserService {
     return exists;
   }
 
-  async getUsers(): Promise<any> {
+  getUsers(): Observable<any> {
     return this._firestore
       .collection('users')
       .valueChanges({ idField: 'docId' });
@@ -82,5 +83,22 @@ export class UserService {
       .catch((err) => {
         throw err;
       });
+  }
+
+  async deverify(docId: string): Promise<any> {
+    this.userDocument = this._firestore.doc('users/' + docId);
+    this.userDocument
+      .update({ isVerified: false })
+      .then(() => {
+        return true;
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  getUser(userId: string): Observable<UserDetails | undefined> {
+    this.userDocument = this._firestore.doc('users/' + userId);
+    return this.userDocument.valueChanges();
   }
 }

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-aspirants.component.css'],
 })
 export class AddAspirantsComponent implements OnInit {
-  value = '';
+  positionValue = '';
   loading = false;
   error = '';
   positions = [
@@ -31,37 +31,49 @@ export class AddAspirantsComponent implements OnInit {
   constructor(private _aspirant: AspirantService, private _route: Router) {}
 
   ngOnInit(): void {}
+  imageFile!: File;
 
   async add(addAspirantForm: NgForm) {
     this.loading = true;
+    this.error = '';
     const val = addAspirantForm.value;
-    console.log(val);
 
-    this._aspirant.getAspirantByReg(val.regNo).subscribe((v) => {
-      console.log(v);
-      if (!!v.docId) {
-        this.error = 'user not registered';
-        return;
-      }
-
-      console.log(v?.docId);
-
-      this._aspirant
-        .registerAspirant(v.docId, val.profilePic, val.nickName, this.value)
-        .then((val) => {
-          console.log('error');
+    await this._aspirant
+      .aspirantEsists(val.regNo.toUpperCase())
+      .then(async (exists) => {
+        if (exists) {
           this.loading = false;
-        })
-        .catch((err) => {
-          console.log(err);
-          this.error = err.message;
-          this.loading = false;
-        });
-    });
+          this.error = 'User alredy exists';
+          return;
+        } else {
+          await this._aspirant
+            .registerAspirant(
+              val.regNo.toUpperCase(),
+              val.aspirantName,
+              this.imageFile,
+              val.nickName,
+              this.positionValue
+            )
+            .then((val) => {
+              addAspirantForm.reset();
+              this.loading = false;
+            })
+            .catch((err) => {
+              console.log(err);
+              this.loading = false;
+            });
+        }
+      });
   }
 
   changed(value: any) {
-    this.value = value;
+    this.positionValue = value;
+  }
+
+  changeFile(event: any) {
+    if (event.target?.files.length > 0) {
+      this.imageFile = event.target?.files[0];
+    }
   }
   navigateHome() {
     this._route.navigate(['']);

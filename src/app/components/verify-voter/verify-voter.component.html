@@ -1,0 +1,96 @@
+<div class="wrapper">
+  <fieldset>
+    <legend>
+      Pending verification <b>Total: {{ pendingVerification.length }}</b>
+    </legend>
+    <ul class="pending-verification">
+      <li *ngFor="let user of pendingVerification; let index = index">
+        <mat-card>
+          <table>
+            <tr>
+              <th>RegNo:</th>
+              <td>{{ getVals(user).regNo }}</td>
+            </tr>
+            <tr>
+              <th>Name:</th>
+              <td>{{ getVals(user).userName | uppercase }}</td>
+            </tr>
+          </table>
+          <div>
+            <button
+              mat-button
+              (click)="verifyVoter(user)"
+              mat-raised-button
+              color="primary"
+            >
+              Verify
+            </button>
+          </div>
+        </mat-card>
+      </li>
+    </ul>
+  </fieldset>
+
+  <fieldset>
+    <legend>
+      Verified voter <b>Total: {{ verifiedUser.length }}</b>
+    </legend>
+    <ul class="verified">
+      <li *ngFor="let user of verifiedUser">
+        <mat-card>
+          <table>
+            <tr>
+              <th>RegNo:</th>
+              <td>{{ getVals(user).regNo }}</td>
+            </tr>
+            <tr>
+              <th>Name:</th>
+              <td>{{ getVals(user).userName | uppercase }}</td>
+            </tr>
+          </table>
+          <div>
+            <button
+              mat-button
+              (click)="deverifyVoter(user)"
+              mat-raised-button
+              color="warn"
+            >
+              Unverify
+            </button>
+          </div>
+        </mat-card>
+      </li>
+    </ul>
+  </fieldset>
+
+  <fieldset>
+    <legend>
+      Unverified voter <b>Total: {{ unverified.length }}</b>
+    </legend>
+    <ul class="unverified">
+      <li *ngFor="let user of unverified">
+        <mat-card>
+          <table>
+            <tr>
+              <th>RegNo:</th>
+              <td>{{ getVals(user).regNo }}</td>
+            </tr>
+            <tr>
+              <th>Name:</th>
+              <td>{{ getVals(user).userName | uppercase }}</td>
+            </tr>
+          </table>
+          <div>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="verifyVoter(user)"
+            >
+              Verify
+            </button>
+          </div>
+        </mat-card>
+      </li>
+    </ul>
+  </fieldset>
+</div>

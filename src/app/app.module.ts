@@ -21,6 +21,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AddAspirantsComponent } from './components/add-aspirants/add-aspirants.component';
 import { AddPositionComponent } from './components/add-position/add-position.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { VerifyVoterComponent } from './components/verify-voter/verify-voter.component';
+import { MatCardModule } from '@angular/material/card';
+import { AdminComponent } from './components/admin/admin.component';
 import { MatSelectModule } from '@angular/material/select';
 
 const firebaseConfig = {
@@ -32,6 +35,7 @@ const firebaseConfig = {
   appId: '1:95416969555:web:28ce810f9a338d312099a6',
 };
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +46,8 @@ const firebaseConfig = {
     VoteComponent,
     AddAspirantsComponent,
     AddPositionComponent,
+    VerifyVoterComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,9 +65,11 @@ const firebaseConfig = {
     MatIconModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatCardModule,
     MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
+//@ts-ignore
 export class AppModule {}
